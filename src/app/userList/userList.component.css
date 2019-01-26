@@ -1,0 +1,183 @@
+h1
+{
+    color: rgb(24, 167, 192);
+    
+    text-align: center;
+    margin-top: 15px;
+    
+
+ }
+.containner{
+
+    max-width: 100%;
+}
+ .btn.btn-success {
+    color: #fff;
+    background-color: #28a745;
+    border-color: #28a745;
+    font-weight: bold;
+    box-shadow: 2px 2px 3px #9e9d9d;
+    margin-top: 10px;
+}
+
+.btn.btn-success:hover {
+    color: #fff;
+    background-color: #116826;
+    border-color: #116826;
+    font-weight: bold;
+    box-shadow: 2px 2px 3px #9e9d9d;
+    margin-top: 10px;
+}
+ tr>th {
+    cursor: pointer;
+
+}
+tr>input{
+    max-width: 150px;
+}
+h2{
+    font-size: 20px;
+    color: rgb(0, 81, 255)
+}
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+    margin-top: 10px;
+    table-layout: fixed;
+    margin-bottom: 20px;
+  }
+  
+  td,th{ 
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+
+  }
+  tr:nth-child(even) {
+    background-color: #dddddd;
+  }
+  
+ul{
+    margin: 0 0 2em 0;
+    list-style-type: none;
+    padding: 0;
+    
+    width: 20em;
+}
+.idClass
+{
+    background-color: rgb(23, 199, 140);
+    padding: 0.5em 0.5em;
+    line-height : 1em
+}
+
+    
+.liBtn
+{
+    float: left;
+    display: block;
+    margin-left: 10px;
+}
+
+li{
+  
+    background-color: aliceblue;
+    padding: 0.5em 0;
+    position: relative;
+    left:0;
+
+    
+    position: relative;
+
+    margin   : 1em;
+    border-radius : 2em
+}
+.selected {
+    background-color: rgb(167, 133, 92)  ;
+    color: white;
+    
+}
+
+li:hover{
+  background-color: rgb(209, 164, 108)  ;
+  color: white
+}
+.topDiv
+{
+    display: inline-block;
+    position: relative;
+
+    width: 100%;
+}
+.btnDiv
+{
+    float: right;
+    right: 0;
+    top:0;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    position: absolute;
+
+}
+.btn.btn-light.del
+{
+    font-size: 15px;
+    padding :5px;
+    margin-top: 2px;
+    margin-left: 5px;
+    box-shadow:1px 1px 2px #524f4f;
+}
+.btn.btn-light.upd
+{
+    font-size: 15px;
+    padding :5px;
+    margin-left: 5px;
+    margin-top: 2px;
+    box-shadow:1px 1px 2px #524f4f;
+}
+
+.btncontainer
+{
+
+display: block;
+max-width: 130px;
+min-width: 130px;
+padding-top: -10px;
+
+    
+}
+
+.redTurn
+{
+    border: 1px solid red;
+}
+
+.loadMore
+{
+    width: 100%;
+
+    display: flex;
+    margin-top: 15px;
+    margin-bottom: 20px;
+    justify-content: center;
+
+
+}
+
+.btn-primary
+{
+    box-shadow: 2px 2px 3px #9e9d9d;
+    font-weight: bold;
+}
+
+mat-icon
+{
+    cursor: pointer;
+    outline: none;
+    margin-bottom: auto;
+    margin-top: auto;
+    padding: 0px;
+    margin: 0;
+}
+

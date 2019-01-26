@@ -1,0 +1,146 @@
+
+h1
+{
+    color: white;
+    
+    text-align: center;
+    margin-top: 20px;
+    font-weight: bold;
+    margin-bottom: 20px;
+
+ }
+ .btn-primary,.btn-danger
+ {
+    box-shadow: 2px 2px 10px #323030bd;
+     font-weight: bold;
+ }
+
+ .btn-primary:disabled{
+    color: #fff;
+    background-color: #0069ff;
+    border-color: #0069ff;
+ }
+ .containner{
+     width: 100%;
+     
+     background-color: rgba(189, 189, 192, 0.35);
+
+     position: absolute;
+     left: 0;
+
+     top: 0;
+     right: 0;
+     bottom: 0;
+
+    overflow: auto;
+    display: flex;
+    height: auto;
+    padding-top:10px; 
+    justify-content: center;
+
+
+ }
+ select, input{
+    max-width:100%;
+    box-sizing:border-box;
+    
+  }
+.cont
+{
+
+
+
+    text-align: center;
+    margin: auto;
+    margin-top: 15px;
+    display: block;
+    background-color: rgb(46, 59, 90);
+    border-radius: 5px;
+    
+    box-shadow: 6px 6px 17px 3px #746d6d;
+    padding-bottom:30px; 
+    padding-top: 1px;
+    margin-top: auto;
+    margin-bottom: auto;
+
+    width: 40%;
+    text-align: center;
+}
+
+.formContainer
+{
+    margin-top: 30px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    
+
+}
+.form-actions {
+    margin: 0;
+    background-color: transparent;
+    text-align: center;
+}
+
+
+.alert-danger
+{
+    font-size: 15px;
+    padding: 5px;
+    color: #ff0000;
+    background-color: inherit;
+    border: inherit;   
+     font-family: fantasy;
+    font-weight: bold;
+}
+
+.input-group-prepend
+{
+    padding: 0px;
+    font-size: 10px;
+    margin-top: -10px;
+
+    height: 38px;
+
+    margin-right: -10px;
+}
+
+.input-group-text
+{
+    padding: 2px;
+    font-size: 20px;
+    display: block;
+    height: 38px;
+    margin: 10px;
+    width:80px;
+    text-align: center;
+    font-weight: 700;
+
+}
+
+#basic-addon1
+{
+
+    text-align: center;
+    
+    color: #023a56b0;
+} 
+
+.inerr
+{
+margin-bottom: 10px;    
+
+}
+.err{
+    height: 20px;
+    font-size: 12px;
+    margin-bottom: 5px;
+    margin-top: -10px;
+    float: left;
+    display: block;
+    padding: 0px;
+}
+
+input{
+    margin-bottom: -10px;
+}

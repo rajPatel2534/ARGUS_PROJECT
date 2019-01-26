@@ -1,0 +1,95 @@
+<div class="containner">
+  <div class="cont"><h1>ADD USER</h1>
+<div class="formContainer">
+   <form [formGroup]="angForm" novalidob>
+    <div class="input-group mb-3">
+        <div class="input-group-prepend">
+          <span class="input-group-text" id="basic-addon1">Name</span>
+        </div>
+        <div class="inerr">
+        <div class="form-group">
+              <input class="form-control"  formControlName="name" [(ngModel)]="aName">
+        </div>
+        <div class="err">
+          <div *ngIf="angForm.controls['name'].invalid && (angForm.controls['name'].dirty || angForm.controls['name'].touched)" class="alert alert-danger">
+              <div *ngIf="angForm.controls['name'].errors.required">
+              *Required
+            </div>
+            <div *ngIf="angForm.controls['name'].errors.pattern">
+              *Invalid name
+          </div>
+          </div>
+        </div> 
+        </div>     
+      </div>
+      <div class="input-group mb-3">
+          <div class="input-group-prepend">
+            <span class="input-group-text" id="basic-addon1">Mobile</span>
+          </div>
+          <div class="inerr">
+          <div class="form-group">
+                <input class="form-control" formControlName="mobile" [(ngModel)]="aMobile">
+              </div>
+              <div class="err">
+            <div *ngIf="angForm.controls['mobile'].invalid && (angForm.controls['mobile'].dirty || angForm.controls['mobile'].touched)" class="alert alert-danger">
+                <div *ngIf="angForm.controls['mobile'].errors.required">
+                  *Required
+              </div>
+              <div *ngIf="angForm.controls['mobile'].errors.pattern">
+                *Invalid mobile no.
+            </div>
+            </div>   
+            </div>     
+          </div>
+          </div>
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text" id="basic-addon1">D.O.B.</span>
+            </div>
+            <div class="inerr">
+            <div class="form-group">
+                   <input class="form-control"  type="date" formControlName="dob" [(ngModel)]="adob">
+              </div>
+              <div class="err">
+              <div *ngIf="angForm.controls['dob'].invalid && (angForm.controls['dob'].dirty || angForm.controls['dob'].touched)" class="alert alert-danger">
+                  <div *ngIf="angForm.controls['dob'].errors.required">
+                    *Required
+                </div>
+                <div *ngIf="angForm.controls['dob'].errors.pattern">
+                  *Invalid Birth Date
+              </div>
+              </div> 
+              </div>
+             </div>
+             </div>
+          <div class="input-group mb-3">
+              <div class="input-group-prepend">
+                <span class="input-group-text" id="basic-addon1">City</span>
+              </div>
+              <div class="inerr">
+              <div class="form-group">
+
+                    <input class="form-control" formControlName="city" [(ngModel)]="aCity">
+                </div>
+                <div class="err">
+                <div *ngIf="angForm.controls['city'].invalid && (angForm.controls['city'].dirty || angForm.controls['city'].touched)" class="alert alert-danger">
+                    <div *ngIf="angForm.controls['city'].errors.required">
+                      *Required
+                  </div>
+                  <div *ngIf="angForm.controls['city'].errors.pattern">
+                    *Invalid city
+                </div>
+                </div>
+                </div>  
+               </div>
+          </div>
+            
+             <div class="btnContainer"> <button type="submit" class="btn btn-danger" (click)="cancel()">Cancel</button>
+ 
+              <button type="submit" style="margin-left: 15px;"class="btn btn-primary" [disabled]="!angForm.valid" (click)="add(aName,aMobile,adob,aCity)" routerLink="/heroes">Add User</button>
+              </div> 
+  </form>
+  </div>
+</div>
+
+</div>

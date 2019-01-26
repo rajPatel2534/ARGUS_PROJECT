@@ -1,0 +1,133 @@
+<div class="containner">
+
+  <div class="topDiv">
+    <h1>List of Users</h1>
+    <div class="btnDiv">
+      <button routerLink="/add" class="btn btn-success" type="button">ADD USER</button>
+
+    </div>
+  </div>
+  <div class="input-group mb-3" style="margin-top : 10px;">
+    <div class="input-group-prepend">
+      <span class="input-group-text" id="basic-addon1">Search</span>
+    </div>
+
+    <input class="form-control" type="text" name="search" placeholder="Enter User's Name, Mobile no, Age, City"
+      [(ngModel)]="filter">
+  </div>
+
+  <form [formGroup]="upForm" novalidate>
+    <table>
+      <tr>
+        <th (click)="sort('name')">Name
+          <span class="glyphicon sort-icon" *ngIf="key =='name'" [ngClass]="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span>
+        </th>
+        <th (click)="sort('mobile')">Mobile No .
+          <span class="glyphicon sort-icon" *ngIf="key =='mobile'" [ngClass]="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span>
+        </th>
+        <th (click)="sort('age')">D.O.B.
+          <span class="glyphicon sort-icon" *ngIf="key =='date'" [ngClass]="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span>
+        </th>
+        <th (click)="sort('city')">City
+          <span class="glyphicon sort-icon" *ngIf="key =='city'" [ngClass]="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span>
+        </th>
+        <th>Action</th>
+      </tr>
+      <!-- slice:0:limitqty  -->
+      <tr *ngFor="let user of users | orderBy: key : reverse | filter:filter|paginate: { itemsPerPage: 7, currentPage: p } ; let i = index"
+        [attr.data-index]="i">
+        <td *ngIf="user.key != updateKey ">{{user.name}}</td>
+        <td *ngIf="user.key != updateKey ">{{user.mobile}}</td>
+        <td *ngIf="user.key != updateKey ">{{user.dob}}</td>
+        <td *ngIf="user.key != updateKey ">{{user.city}}</td>
+
+        <td *ngIf="user.key == updateKey && upForm!= undefined">
+          <input type="text" class="form-control" formControlName="name" [value]="user.name" [ngClass]="{'redTurn':upForm.controls['name'].invalid }">
+        </td>
+
+
+
+
+
+        <td *ngIf="user.key == updateKey && upForm != undefined"><input type="text" class="form-control"
+            formControlName="mobile" [value]="user.mobile" [ngClass]="{'redTurn':upForm.controls['mobile'].invalid }"></td>
+
+
+        <td *ngIf="user.key == updateKey && upForm != undefined"><input type="date" class="form-control"
+            formControlName="dob" [value]=" updateDOBDefault | date : 'yyyy-MM-dd'" [ngClass]="{'redTurn':upForm.controls['dob'].invalid }"></td>
+
+        <td *ngIf="user.key == updateKey && upForm != undefined"><input type="text" class="form-control"
+            formControlName="city" [value]="user.city" [ngClass]="{'redTurn':upForm.controls['city'].invalid }"></td>
+        <td>
+          <div class="btncontainer">
+            <!-- <button mat-icon-button class="del" type="button" (click)="setDeleteIndex(user.key,user.name)" [hidden]="user.key == updateKey"  style="padding:0; border: transparent ; background-color: transparent;outline: none; cursor: pointer;" name="del" data-toggle="modal" data-target="#exampleModalCenter">
+              <mat-icon   [ngStyle]="{'color': user.key == updateKey ? '#ff8080':  'brown' }" >delete</mat-icon>
+              </button>
+
+              <button mat-icon-button (click)="cancel()" type="button" *ngIf="user.key == updateKey"  style="padding:0; border: transparent ; background-color: transparent;outline: none; cursor: pointer;" name="cancel">
+                  <mat-icon   style="color : red">cancel</mat-icon>
+                  </button> -->
+            <button class="del" type="button" (click)="setDeleteIndex(user.key,user.name)" [hidden]="user.key == updateKey"
+              style="padding:0; border: transparent ; background-color: transparent;outline: none; cursor: pointer;"
+              name="del" data-toggle="modal" data-target="#exampleModalCenter">
+              <i class="fa fa-trash fa-lg" [ngStyle]="{'color': user.key == updateKey ? '#ff8080':  'brown' }"></i>
+            </button>
+            <button mat-icon-button (click)="cancel()" type="button" *ngIf="user.key == updateKey" style="padding:0; border: transparent ; background-color: transparent;outline: none; cursor: pointer;"
+              name="cancel">
+              <i class="fa fa-times fa-lg" style="color : red"></i>
+            </button>
+            <!-- <button [disabled]="hero.key == updateKey" type="button" class="btn btn-light del" name="del" data-toggle="modal" data-target="#exampleModalCenter" (click)="setDeleteIndex(hero.key)">Delete</button>
+            <button *ngIf="data[i] == 0" type="submit" (click)="cancel(i)">Cancel</button>  -->
+            <button mat-icon-button (click)="update(user.name,user.mobile,user.dob,user.city,i,user.key)" type="button"
+              color="primary" style="padding:0; border: transparent ; background-color: transparent ; outline: none;cursor: pointer;margin-left: 15px"
+              name="upt" [disabled]="upForm != undefined && ( !upForm.valid  ) && user.key == updateKey ">
+              <i [ngClass]="{'fas fa-save fa-lg': user.key == updateKey, 'fa fa-pencil fa-lg' : true }" [ngStyle]="{'color': user.key == updateKey ? (!upForm.valid) ? '#ccffcc' : 'green' :  '#198dd4' }">
+
+              </i>
+            </button>
+            <!-- <button mat-button type="button" (click)="update(hero.name,hero.mobile,hero.age,hero.city,i,hero.key)">
+        <mat-icon [ngStyle]="{'color': hero.key == updateKey ? 'green':  '#198dd4' }"  [innerHTML]="hero.key == updateKey ? 'save' : 'edit'">
+          edit
+        </mat-icon>
+        </button> -->
+          </div>
+        </td>
+
+
+
+
+
+      </tr>
+    </table>
+  </form>
+
+  <div *ngIf="!fullLoaded" class="loadMore">
+    <pagination-controls (pageChange)="p = $event"></pagination-controls>
+    <!-- <button  type="button" class="btn btn-primary" (click)="loadmore()">
+        Load More
+    </button> -->
+  </div>
+</div>
+
+
+
+<!-- Modal -->
+
+<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+  aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Are you sure want to delete {{selectDeleteName}} ?</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="cancel()">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" (click)="cancel()" data-dismiss="modal">Cancel</button>
+        <button type="button" class="btn btn-primary" (click)="delete()" data-dismiss="modal">Delete Record</button>
+      </div>
+    </div>
+  </div>
+</div>
+<div>
